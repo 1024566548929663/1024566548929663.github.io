@@ -1,7 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
+<head>
+    <title>4H Cornhole Tournament</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>4H Cornhole Tournament Registration</h1>
+    <p>Enter the names of two participants:</p>
+    
+    <div>
+        <label for="participant1">Participant 1: </label>
+        <input type="text" id="participant1" placeholder="Name of Participant 1">
+    </div>
+    
+    <div>
+        <label for="participant2">Participant 2: </label>
+        <input type="text" id="participant2" placeholder="Name of Participant 2">
+    </div>
+    
+    <button onclick="addParticipants()">Add Participants</button>
+    
+    <h2>Participant List</h2>
+    <ul id="participantList"></ul>
+
+    <script>
+        function addParticipants() {
+            const participant1 = document.getElementById('participant1').value;
+            const participant2 = document.getElementById('participant2').value;
+            const participantList = document.getElementById('participantList');
+
+            if (participant1.trim() === '' || participant2.trim() === '') {
+                alert('Please enter both participant names.');
+            } else {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${participant1} and ${participant2}`;
+                participantList.appendChild(listItem);
+                document.getElementById('participant1').value = '';
+                document.getElementById('participant2').value = '';
+            }
+        }
+    </script>
+</body>
 </html>
